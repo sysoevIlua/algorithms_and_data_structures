@@ -1,15 +1,18 @@
 package org.sysoev;
 
 
-import org.sysoev.task8.SelfFileReader;
+import org.sysoev.task10.ButtonEnableModel;
+import org.sysoev.task10.WorkerNameModel;
+import org.sysoev.task10.WorkerNameView;
+import org.sysoev.task10.WorkerNameViewModel;
 
-import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
+        WorkerNameModel nameModel = new WorkerNameModel();
+        ButtonEnableModel buttonEnableModel = new ButtonEnableModel();
+        WorkerNameViewModel vm = new WorkerNameViewModel(nameModel,buttonEnableModel);
 
-        var map = SelfFileReader.readFile("src/main/java/org/sysoev/task8/test.txt");
-
-        System.out.println(map);
+        new WorkerNameView(vm);
     }
 }
